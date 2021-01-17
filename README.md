@@ -11,3 +11,9 @@ transactions.get_dataset()
 ```
 
 Which returns a pandas dataframe.
+
+Currently only supports country tables but will be extended to mrio at a later stage.
+
+Country tables defined using the following schema.
+
+![Country Tables](docs/iotables.png)
