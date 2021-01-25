@@ -34,6 +34,9 @@ class EoraReader(abc.ABC):
     def get_dataset(self, extended = False):
         return
 
-    @abc.abstractmethod
     def append(self, country_table_part):
-        return
+        """ Used to append two domestic country tables together """
+        if country_table_part.df == None: country_table_part.get_dataset(True)
+        if self.df == None: self.df = self.get_dataset(True)
+        self.df = self.df.append(country_table_part.df)
+        return self.df

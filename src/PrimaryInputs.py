@@ -33,9 +33,3 @@ class PrimaryInputs(EoraReader):
         self.df = df
         self.extended = extended
         return df
-
-    def append(self, country_table_part):
-        """ Used to append two domestic country tables together """
-        if country_table_part.df == None: country_table_part.get_dataset(self.extended)
-        self.df = self.df.append(country_table_part.df)
-        return self.df
