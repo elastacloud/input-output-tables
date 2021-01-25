@@ -7,13 +7,16 @@ Supports country tables only currently including:
 - DomesticTransactions 
 - PrimaryInputs
 
-Currently supports only Domestic Transactions and can be used like so:
+Supports a factory method and can be used like so:
 
 ```
-transactions = DomesticTransactions("C:\\Users\\rich\\Downloads\\IO_All_2015\\IO_ABW_2015_BasicPrice.txt")
-transactions.get_dataset(extended = True)
-transactions1 = DomesticTransactions("C:\\Users\\rich\\Downloads\\IO_All_2015\\IO_AFG_2015_BasicPrice.txt")
-transactions.append(transactions1)
+if __name__ == "__main__":    
+    filepath_1 = sys.argv[1]
+    filepath_2 = sys.argv[2]
+    table1 = CountryTable(CountryTableSegment.PrimaryInputs, filepath_1)
+    table2 = CountryTable(CountryTableSegment.PrimaryInputs, filepath_2)
+    df = table2.append(table1)
+    print(df)
 ```
 
 Which returns a pandas dataframe. Using extended = True will add year and country columns. In addition the append method will add additional country tables so that you can have an uber country pandas dataframe. Next versions of this will allow directories to be read and country table segments to be created from them.
