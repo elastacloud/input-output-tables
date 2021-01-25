@@ -3,6 +3,10 @@ Describes a reader interface for input-output tables for Eora data
 
 To leverage simply use a file downloaded from Eora.
 
+Supports country tables only currently including:
+- DomesticTransactions 
+- PrimaryInputs
+
 Currently supports only Domestic Transactions and can be used like so:
 
 ```
@@ -19,3 +23,7 @@ Currently only supports country tables but will be extended to mrio at a later s
 Country tables defined using the following schema.
 
 ![Country Tables](docs/iotables.png)
+
+Returns a pandas dataframe of a certain type like so (for PrimaryInputs):
+
+![Primary Inputs](docs/primary_inputs.png)
