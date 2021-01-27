@@ -19,6 +19,14 @@ if __name__ == "__main__":
     print(df)
 ```
 
+Also supports this where the file path is a folder and reads in all files returning a single dataframe.
+
+```
+filepath_1 = sys.argv[1]
+table1 = CountryTable(CountryTableSegment.PrimaryInputs, filepath_1)
+print(table1.get_dataset(True))
+```
+
 Which returns a pandas dataframe. Using extended = True will add year and country columns. In addition the append method will add additional country tables so that you can have an uber country pandas dataframe. Next versions of this will allow directories to be read and country table segments to be created from them.
 
 Currently only supports country tables but will be extended to mrio at a later stage.
